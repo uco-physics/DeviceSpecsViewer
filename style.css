@@ -8,6 +8,7 @@
   --muted: #475467;
   --accent: #1570ef;
   --accent-soft: rgba(21, 112, 239, 0.08);
+  --accent-strong: #0b5ed7;
   --border: #e4e7ec;
   --shadow: 0 20px 60px rgba(16, 24, 40, 0.08);
   --radius: 16px;
@@ -22,7 +23,7 @@ body {
   margin: 0;
   font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
   color: var(--ink);
-  background: radial-gradient(circle at top, #ffffff 0%, #f5f7ff 55%, #eef1f7 100%);
+  background: radial-gradient(circle at top, #ffffff 0%, #f5f7ff 50%, #eef1f7 100%);
 }
 
 h1, h2, h3 {
@@ -138,6 +139,22 @@ p {
   min-height: 110px;
   display: grid;
   gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(21, 112, 239, 0.08), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.summary-card:hover::after {
+  opacity: 1;
 }
 
 .summary-card h2 {
@@ -180,6 +197,7 @@ p {
   border: 1px solid var(--border);
   padding: 20px;
   box-shadow: var(--shadow);
+  animation: rise 0.45s ease both;
 }
 
 .detail-panel header {
@@ -298,6 +316,17 @@ p {
   line-height: 1.4;
   display: grid;
   gap: 8px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .site-footer {
