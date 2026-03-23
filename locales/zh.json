@@ -24,6 +24,8 @@
   "debug.copy": "复制日志",
   "debug.download": "下载日志",
   "debug.clear": "清空",
+  "actions.export": "导出 JSON",
+  "actions.copy": "复制 JSON",
   "section.overview": "概览",
   "section.system": "系统",
   "section.cpu": "CPU",

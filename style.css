@@ -75,6 +75,34 @@ p {
   gap: 12px;
 }
 
+.export-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-button {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 16px rgba(21, 112, 239, 0.18);
+}
+
+.action-button:hover,
+.action-button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.action-button--ghost {
+  background: #ffffff;
+  color: var(--accent);
+}
+
 .lang-label {
   font-size: 0.95rem;
   color: var(--muted);
@@ -335,6 +363,7 @@ p {
   .header-actions {
     width: 100%;
     justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .detail-panel th {

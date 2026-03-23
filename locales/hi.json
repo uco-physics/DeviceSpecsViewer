@@ -24,6 +24,8 @@
   "debug.copy": "लॉग कॉपी करें",
   "debug.download": "लॉग डाउनलोड करें",
   "debug.clear": "साफ़ करें",
+  "actions.export": "JSON निर्यात करें",
+  "actions.copy": "JSON कॉपी करें",
   "section.overview": "अवलोकन",
   "section.system": "सिस्टम",
   "section.cpu": "CPU",

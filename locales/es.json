@@ -24,6 +24,8 @@
   "debug.copy": "Copiar registros",
   "debug.download": "Descargar registros",
   "debug.clear": "Limpiar",
+  "actions.export": "Exportar JSON",
+  "actions.copy": "Copiar JSON",
   "section.overview": "Resumen",
   "section.system": "Sistema",
   "section.cpu": "CPU",

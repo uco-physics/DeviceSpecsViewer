@@ -24,6 +24,8 @@
   "debug.copy": "Copy Logs",
   "debug.download": "Download Logs",
   "debug.clear": "Clear",
+  "actions.export": "Export JSON",
+  "actions.copy": "Copy JSON",
   "section.overview": "Overview",
   "section.system": "System",
   "section.cpu": "CPU",

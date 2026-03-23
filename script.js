@@ -1,5 +1,7 @@
 const SUPPORTED_LANGS = ['en', 'ja', 'zh', 'es', 'hi'];
 const DEFAULT_LANG = 'en';
+const APP_NAME = 'Device Specs Viewer';
+const APP_VERSION = '0.1.0';
 
 const state = {
   lang: DEFAULT_LANG,
@@ -117,6 +119,7 @@ async function initLanguageSelector() {
 document.addEventListener('DOMContentLoaded', () => {
   initDebugPanel();
   initTooltips();
+  initExportActions();
   Promise.all([initLanguageSelector(), collectAllData()]).then(([, data]) => {
     state.collected = data;
     renderData(data);
@@ -214,6 +217,32 @@ function supportsSessionStorage() {
   } catch (error) {
     return false;
   }
+}
+
+async function copyText(text) {
+  if (!text) return false;
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.style.position = 'fixed';
+  textarea.style.top = '-9999px';
+  document.body.appendChild(textarea);
+  textarea.select();
+  let success = false;
+  try {
+    success = document.execCommand('copy');
+  } catch (error) {
+    success = false;
+  }
+  document.body.removeChild(textarea);
+  return success;
 }
 
 async function collectAllData() {
@@ -720,6 +749,90 @@ function renderData(data) {
   logEvent('info', 'Rendered data to UI', { fieldCount: elements.length });
 }
 
+function initExportActions() {
+  const actions = document.querySelector('.export-actions');
+  if (!actions) return;
+
+  actions.addEventListener('click', async (event) => {
+    const button = event.target.closest('[data-action]');
+    if (!button) return;
+    const action = button.dataset.action;
+    const payload = buildExportPayload();
+    if (!payload) {
+      logEvent('warn', 'Export requested before data collection finished');
+      return;
+    }
+
+    const json = JSON.stringify(payload, null, 2);
+    if (action === 'copy') {
+      const success = await copyText(json);
+      logEvent(success ? 'info' : 'warn', success ? 'Copied JSON export' : 'Copy JSON failed');
+    }
+    if (action === 'export') {
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `device-specs-viewer-${Date.now()}.json`;
+      link.click();
+      URL.revokeObjectURL(url);
+      logEvent('info', 'Downloaded JSON export');
+    }
+  });
+}
+
+function buildExportPayload() {
+  if (!state.collected) return null;
+
+  const displayed = {};
+  document.querySelectorAll('[data-field]').forEach((el) => {
+    const key = el.dataset.field;
+    displayed[key] = getFieldValue(state.collected, key);
+  });
+
+  const fields = {};
+  collectFieldMeta(state.collected, '', fields);
+
+  const capabilityFlags = Object.fromEntries(
+    Object.entries(state.collected.capabilities).map(([key, value]) => [key, !!value.value])
+  );
+
+  return {
+    app: {
+      name: APP_NAME,
+      version: APP_VERSION,
+    },
+    timestamp: new Date().toISOString(),
+    language: {
+      selected: state.lang,
+      detected: navigator.languages?.length ? navigator.languages : [navigator.language].filter(Boolean),
+    },
+    displayed,
+    fields,
+    capabilityFlags,
+    raw: state.collected,
+  };
+}
+
+function collectFieldMeta(obj, prefix, out) {
+  if (!obj || typeof obj !== 'object') return;
+  Object.entries(obj).forEach(([key, value]) => {
+    if (value && typeof value === 'object' && 'quality' in value && 'value' in value) {
+      out[prefix + key] = {
+        value: value.value,
+        raw: value.raw ?? null,
+        quality: value.quality,
+        notes: value.notes ?? null,
+        source: value.source ?? null,
+      };
+      return;
+    }
+    if (value && typeof value === 'object') {
+      collectFieldMeta(value, `${prefix}${key}.`, out);
+    }
+  });
+}
+
 function initTooltips() {
   const tooltip = document.getElementById('tooltip');
   if (!tooltip) return;
@@ -852,12 +965,8 @@ function initDebugPanel() {
     const action = target.dataset.action;
     if (action === 'copy') {
       const payload = exportLogs();
-      try {
-        await navigator.clipboard.writeText(payload);
-        logEvent('info', 'Copied logs to clipboard');
-      } catch (error) {
-        logEvent('warn', 'Clipboard copy failed', { error: String(error) });
-      }
+      const success = await copyText(payload);
+      logEvent(success ? 'info' : 'warn', success ? 'Copied logs to clipboard' : 'Clipboard copy failed');
     }
     if (action === 'download') {
       const payload = exportLogs();
