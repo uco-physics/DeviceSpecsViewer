@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Device Specs Viewer</title>
+  <meta name="description" content="View device, browser, and capability details directly in your browser." />
+
+  <!-- SEO extension point: add canonical URL -->
+  <!-- <link rel="canonical" href="https://example.com/" /> -->
+
+  <!-- OGP/Twitter extension point -->
+  <!--
+  <meta property="og:title" content="Device Specs Viewer" />
+  <meta property="og:description" content="View device, browser, and capability details directly in your browser." />
+  <meta property="og:image" content="/assets/og-image.png" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  -->
+
+  <!-- JSON-LD extension point -->
+  <!-- <script type="application/ld+json">{}</script> -->
+
+  <!-- Analytics/Tracking extension point -->
+  <!-- <script>/* analytics init */</script> -->
+
+  <!-- Ads extension point -->
+  <!-- <script>/* ad slot init */</script> -->
+
+  <!-- Favicon/app icon placeholders -->
+  <!-- <link rel="icon" href="/assets/favicon.ico" /> -->
+  <!-- <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" /> -->
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">DSV</div>
+      <div class="brand-text">
+        <h1 data-i18n="app.name">Device Specs Viewer</h1>
+        <p data-i18n="app.tagline">Instant visibility into your device and browser capabilities.</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <label class="lang-label" for="language-select" data-i18n="language.label">Language</label>
+      <select id="language-select" class="lang-select" aria-label="Language">
+        <option value="en">EN — English</option>
+        <option value="ja">JA — 日本語</option>
+        <option value="zh">ZH — 简体中文</option>
+        <option value="es">ES — Español</option>
+        <option value="hi">HI — हिन्दी</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="summary">
+      <div class="summary-card">
+        <h2><div class="label-with-help"><span data-i18n="summary.os">OS</span><button class="help-button" type="button" data-help="help.overview.os" data-i18n-aria="aria.help" aria-label="Help">?</button></div></h2>
+        <p class="summary-value value value--loading" data-field="summary.os" data-i18n="status.detecting">Detecting...</p>
+      </div>
+      <div class="summary-card">
+        <h2><div class="label-with-help"><span data-i18n="summary.cpu">CPU</span><button class="help-button" type="button" data-help="help.cpu.threads" data-i18n-aria="aria.help" aria-label="Help">?</button></div></h2>
+        <p class="summary-value value value--loading" data-field="summary.cpu" data-i18n="status.detecting">Detecting...</p>
+      </div>
+      <div class="summary-card">
+        <h2><div class="label-with-help"><span data-i18n="summary.ram">RAM</span><button class="help-button" type="button" data-help="help.memory.total" data-i18n-aria="aria.help" aria-label="Help">?</button></div></h2>
+        <p class="summary-value value value--loading" data-field="summary.ram" data-i18n="status.detecting">Detecting...</p>
+      </div>
+      <div class="summary-card">
+        <h2><div class="label-with-help"><span data-i18n="summary.gpu">GPU</span><button class="help-button" type="button" data-help="help.graphics.renderer" data-i18n-aria="aria.help" aria-label="Help">?</button></div></h2>
+        <p class="summary-value value value--loading" data-field="summary.gpu" data-i18n="status.detecting">Detecting...</p>
+      </div>
+      <div class="summary-card">
+        <h2><div class="label-with-help"><span data-i18n="summary.network">Network</span><button class="help-button" type="button" data-help="help.network.summary" data-i18n-aria="aria.help" aria-label="Help">?</button></div></h2>
+        <p class="summary-value value value--loading" data-field="summary.network" data-i18n="status.detecting">Detecting...</p>
+      </div>
+      <div class="summary-card">
+        <h2><div class="label-with-help"><span data-i18n="summary.storage">Storage</span><button class="help-button" type="button" data-help="help.storage.summary" data-i18n-aria="aria.help" aria-label="Help">?</button></div></h2>
+        <p class="summary-value value value--loading" data-field="summary.storage" data-i18n="status.detecting">Detecting...</p>
+      </div>
+    </section>
+
+    <section class="detail-grid">
+      <article class="detail-panel">
+        <header>
+          <h3 data-i18n="section.overview">Overview</h3>
+        </header>
+        <table>
+          <tbody>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.overview.os">OS</span><button class="help-button" type="button" data-help="help.overview.os" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="overview.os" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.overview.cpu">CPU</span><button class="help-button" type="button" data-help="help.overview.cpu" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="overview.cpu" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.overview.threads">Logical Threads</span><button class="help-button" type="button" data-help="help.cpu.threads" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="overview.threads" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.overview.ram">RAM Total (approx)</span><button class="help-button" type="button" data-help="help.memory.total" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="overview.ram" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.overview.gpu">GPU Renderer</span><button class="help-button" type="button" data-help="help.graphics.renderer" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="overview.gpu" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.overview.network">Network Summary</span><button class="help-button" type="button" data-help="help.network.summary" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="overview.network" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.overview.browser">Browser</span><button class="help-button" type="button" data-help="help.browser.summary" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="overview.browser" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.overview.storage">Storage Summary</span><button class="help-button" type="button" data-help="help.storage.summary" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="overview.storage" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="detail-panel">
+        <header>
+          <h3 data-i18n="section.system">System</h3>
+        </header>
+        <table>
+          <tbody>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.system.osName">OS Name</span><button class="help-button" type="button" data-help="help.system.osName" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="system.osName" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.system.osFamily">OS Family / Platform</span><button class="help-button" type="button" data-help="help.system.osFamily" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="system.osFamily" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.system.timezone">Timezone</span><button class="help-button" type="button" data-help="help.system.timezone" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="system.timezone" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.system.languages">Preferred Languages</span><button class="help-button" type="button" data-help="help.system.languages" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="system.languages" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.system.platform">Platform Data</span><button class="help-button" type="button" data-help="help.system.platform" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="system.platform" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="detail-panel">
+        <header>
+          <h3 data-i18n="section.cpu">CPU</h3>
+        </header>
+        <table>
+          <tbody>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.cpu.name">CPU Name</span><button class="help-button" type="button" data-help="help.cpu.name" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="cpu.name" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.cpu.threads">Logical Threads</span><button class="help-button" type="button" data-help="help.cpu.threads" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="cpu.threads" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.cpu.hints">Browser-Exposed CPU Info</span><button class="help-button" type="button" data-help="help.cpu.hints" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="cpu.hints" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="detail-panel">
+        <header>
+          <h3 data-i18n="section.memory">Memory</h3>
+        </header>
+        <table>
+          <tbody>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.memory.total">RAM Total (approx)</span><button class="help-button" type="button" data-help="help.memory.total" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="memory.total" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.memory.used">Used RAM</span><button class="help-button" type="button" data-help="help.memory.used" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="memory.used" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.memory.free">Free RAM</span><button class="help-button" type="button" data-help="help.memory.free" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="memory.free" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="detail-panel">
+        <header>
+          <h3 data-i18n="section.graphics">Graphics</h3>
+        </header>
+        <table>
+          <tbody>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.graphics.renderer">GPU Renderer</span><button class="help-button" type="button" data-help="help.graphics.renderer" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="graphics.renderer" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.graphics.vendor">GPU Vendor</span><button class="help-button" type="button" data-help="help.graphics.vendor" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="graphics.vendor" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.graphics.vramTotal">VRAM Total</span><button class="help-button" type="button" data-help="help.graphics.vramTotal" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="graphics.vramTotal" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.graphics.vramUsed">VRAM Used</span><button class="help-button" type="button" data-help="help.graphics.vramUsed" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="graphics.vramUsed" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.graphics.vramFree">VRAM Free</span><button class="help-button" type="button" data-help="help.graphics.vramFree" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="graphics.vramFree" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="detail-panel">
+        <header>
+          <h3 data-i18n="section.network">Network</h3>
+        </header>
+        <table>
+          <tbody>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.network.status">Online Status</span><button class="help-button" type="button" data-help="help.network.status" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="network.status" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.network.type">Effective Connection Type</span><button class="help-button" type="button" data-help="help.network.type" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="network.type" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.network.downlink">Downlink</span><button class="help-button" type="button" data-help="help.network.downlink" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="network.downlink" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.network.rtt">RTT</span><button class="help-button" type="button" data-help="help.network.rtt" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="network.rtt" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="detail-panel">
+        <header>
+          <h3 data-i18n="section.browserDevice">Browser &amp; Device</h3>
+        </header>
+        <table>
+          <tbody>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.browser.name">Browser Name</span><button class="help-button" type="button" data-help="help.browser.name" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="browser.name" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.browser.version">Browser Version</span><button class="help-button" type="button" data-help="help.browser.version" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="browser.version" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.browser.userAgent">User Agent</span><button class="help-button" type="button" data-help="help.browser.userAgent" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="browser.userAgent" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.device.touch">Touch Support</span><button class="help-button" type="button" data-help="help.device.touch" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="device.touch" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.device.screen">Screen Resolution</span><button class="help-button" type="button" data-help="help.device.screen" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="device.screen" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.device.viewport">Viewport Size</span><button class="help-button" type="button" data-help="help.device.viewport" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="device.viewport" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.device.dpr">Device Pixel Ratio</span><button class="help-button" type="button" data-help="help.device.dpr" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="device.dpr" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.device.memory">Device Memory (approx)</span><button class="help-button" type="button" data-help="help.device.memory" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="device.memory" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="detail-panel">
+        <header>
+          <h3 data-i18n="section.capabilities">Capabilities</h3>
+        </header>
+        <table>
+          <tbody>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.webgl">WebGL</span><button class="help-button" type="button" data-help="help.capabilities.webgl" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.webgl" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.webgl2">WebGL 2</span><button class="help-button" type="button" data-help="help.capabilities.webgl2" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.webgl2" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.webgpu">WebGPU</span><button class="help-button" type="button" data-help="help.capabilities.webgpu" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.webgpu" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.wasm">WebAssembly</span><button class="help-button" type="button" data-help="help.capabilities.wasm" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.wasm" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.webrtc">WebRTC</span><button class="help-button" type="button" data-help="help.capabilities.webrtc" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.webrtc" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.serviceWorker">Service Worker</span><button class="help-button" type="button" data-help="help.capabilities.serviceWorker" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.serviceWorker" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.localStorage">LocalStorage</span><button class="help-button" type="button" data-help="help.capabilities.localStorage" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.localStorage" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.sessionStorage">SessionStorage</span><button class="help-button" type="button" data-help="help.capabilities.sessionStorage" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.sessionStorage" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.indexeddb">IndexedDB</span><button class="help-button" type="button" data-help="help.capabilities.indexeddb" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.indexeddb" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.clipboard">Clipboard API</span><button class="help-button" type="button" data-help="help.capabilities.clipboard" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.clipboard" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.deviceMemory">Device Memory API</span><button class="help-button" type="button" data-help="help.capabilities.deviceMemory" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.deviceMemory" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.hardwareConcurrency">Hardware Concurrency API</span><button class="help-button" type="button" data-help="help.capabilities.hardwareConcurrency" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.hardwareConcurrency" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.networkInformation">Network Information API</span><button class="help-button" type="button" data-help="help.capabilities.networkInformation" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.networkInformation" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.storageEstimate">Storage Estimate API</span><button class="help-button" type="button" data-help="help.capabilities.storageEstimate" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.storageEstimate" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.touch">Touch Support</span><button class="help-button" type="button" data-help="help.capabilities.touch" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.touch" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.capabilities.pwa">PWA Basic Signals</span><button class="help-button" type="button" data-help="help.capabilities.pwa" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="capabilities.pwa" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="detail-panel">
+        <header>
+          <h3 data-i18n="section.storage">Storage</h3>
+        </header>
+        <table>
+          <tbody>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.storage.estimate">Storage Estimate</span><button class="help-button" type="button" data-help="help.storage.estimate" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="storage.estimate" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.storage.usage">Usage</span><button class="help-button" type="button" data-help="help.storage.usage" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="storage.usage" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+            <tr>
+              <th><div class="label-with-help"><span data-i18n="field.storage.quota">Quota</span><button class="help-button" type="button" data-help="help.storage.quota" data-i18n-aria="aria.help" aria-label="Help">?</button></div></th>
+              <td class="value value--loading" data-field="storage.quota" data-i18n="status.detecting">Detecting...</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p data-i18n="footer.note">Values shown are based on browser-exposed data. Some metrics may be unavailable.</p>
+    <div id="debug-panel" class="debug-panel" hidden>
+      <div class="debug-header">
+        <strong data-i18n="debug.title">Debug Log</strong>
+        <span class="debug-status" data-i18n="debug.enabled">Enabled</span>
+      </div>
+      <div class="debug-actions">
+        <button type="button" class="debug-button" data-action="copy" data-i18n="debug.copy">Copy Logs</button>
+        <button type="button" class="debug-button" data-action="download" data-i18n="debug.download">Download Logs</button>
+        <button type="button" class="debug-button debug-button--ghost" data-action="clear" data-i18n="debug.clear">Clear</button>
+      </div>
+    </div>
+  </footer>
+
+  <div id="tooltip" class="tooltip" role="dialog" aria-hidden="true">
+    <div class="tooltip-header">
+      <span class="tooltip-title"></span>
+      <button class="tooltip-close" type="button" data-i18n-aria="aria.close" aria-label="Close">×</button>
+    </div>
+    <div class="tooltip-body"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
