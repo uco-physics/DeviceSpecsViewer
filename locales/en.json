@@ -27,6 +27,8 @@
   "actions.export": "Export JSON",
   "actions.copy": "Copy JSON",
   "a11y.skip": "Skip to content",
+  "seo.title": "Device Specs Viewer",
+  "seo.description": "View device, browser, and capability details directly in your browser.",
   "section.overview": "Overview",
   "section.system": "System",
   "section.cpu": "CPU",

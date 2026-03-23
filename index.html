@@ -4,21 +4,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Device Specs Viewer</title>
-  <meta name="description" content="View device, browser, and capability details directly in your browser." />
+  <meta id="meta-description" name="description" content="View device, browser, and capability details directly in your browser." />
   <meta name="theme-color" content="#ffffff" />
   <meta name="color-scheme" content="light" />
 
-  <!-- SEO extension point: add canonical URL -->
+  <!-- SEO extension point: update canonical URL -->
   <!-- <link rel="canonical" href="https://example.com/" /> -->
+  <link rel="alternate" hreflang="en" href="https://example.com/en/" />
+  <link rel="alternate" hreflang="hi" href="https://example.com/hi/" />
+  <link rel="alternate" hreflang="x-default" href="https://example.com/" />
 
   <!-- OGP/Twitter extension point -->
-  <!--
-  <meta property="og:title" content="Device Specs Viewer" />
-  <meta property="og:description" content="View device, browser, and capability details directly in your browser." />
+  <meta property="og:title" id="og-title" content="Device Specs Viewer" />
+  <meta property="og:description" id="og-description" content="View device, browser, and capability details directly in your browser." />
   <meta property="og:image" content="/assets/og-image.png" />
   <meta property="og:url" content="https://example.com/" />
   <meta name="twitter:card" content="summary_large_image" />
-  -->
+  <meta name="twitter:title" id="twitter-title" content="Device Specs Viewer" />
+  <meta name="twitter:description" id="twitter-description" content="View device, browser, and capability details directly in your browser." />
 
   <!-- JSON-LD extension point -->
   <!-- <script type="application/ld+json">{}</script> -->

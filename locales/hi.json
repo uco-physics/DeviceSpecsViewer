@@ -27,6 +27,8 @@
   "actions.export": "JSON निर्यात करें",
   "actions.copy": "JSON कॉपी करें",
   "a11y.skip": "मुख्य सामग्री पर जाएं",
+  "seo.title": "Device Specs Viewer",
+  "seo.description": "अपने ब्राउज़र में डिवाइस, ब्राउज़र और क्षमताओं का विवरण देखें।",
   "section.overview": "अवलोकन",
   "section.system": "सिस्टम",
   "section.cpu": "CPU",

@@ -66,6 +66,27 @@ function applyTranslations() {
     }
   });
   document.documentElement.lang = state.lang;
+  updateSeoMeta();
+}
+
+function updateSeoMeta() {
+  const title = t('seo.title');
+  const description = t('seo.description');
+  if (title && title !== 'seo.title') {
+    document.title = title;
+    const ogTitle = document.getElementById('og-title');
+    const twitterTitle = document.getElementById('twitter-title');
+    if (ogTitle) ogTitle.setAttribute('content', title);
+    if (twitterTitle) twitterTitle.setAttribute('content', title);
+  }
+  if (description && description !== 'seo.description') {
+    const meta = document.getElementById('meta-description');
+    const ogDesc = document.getElementById('og-description');
+    const twitterDesc = document.getElementById('twitter-description');
+    if (meta) meta.setAttribute('content', description);
+    if (ogDesc) ogDesc.setAttribute('content', description);
+    if (twitterDesc) twitterDesc.setAttribute('content', description);
+  }
 }
 
 function updateDynamicAria() {

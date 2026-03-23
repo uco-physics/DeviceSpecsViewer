@@ -27,6 +27,8 @@
   "actions.export": "JSONをエクスポート",
   "actions.copy": "JSONをコピー",
   "a11y.skip": "本文へスキップ",
+  "seo.title": "Device Specs Viewer",
+  "seo.description": "ブラウザー上でデバイスやブラウザーの情報を確認できます。",
   "section.overview": "概要",
   "section.system": "システム",
   "section.cpu": "CPU",

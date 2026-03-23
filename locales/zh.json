@@ -27,6 +27,8 @@
   "actions.export": "导出 JSON",
   "actions.copy": "复制 JSON",
   "a11y.skip": "跳到主要内容",
+  "seo.title": "Device Specs Viewer",
+  "seo.description": "在浏览器中查看设备、浏览器与能力详情。",
   "section.overview": "概览",
   "section.system": "系统",
   "section.cpu": "CPU",
