@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Device Specs Viewer</title>
   <meta name="description" content="View device, browser, and capability details directly in your browser." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
 
   <!-- SEO extension point: add canonical URL -->
   <!-- <link rel="canonical" href="https://example.com/" /> -->
@@ -34,6 +36,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content" data-i18n="a11y.skip">Skip to content</a>
   <header class="site-header">
     <div class="brand">
       <div class="brand-mark">DSV</div>
@@ -58,7 +61,7 @@
     </div>
   </header>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <section class="summary">
       <div class="summary-card">
         <h2><div class="label-with-help"><span data-i18n="summary.os">OS</span><button class="help-button" type="button" data-help="help.overview.os" data-i18n-aria="aria.help" aria-label="Help">?</button></div></h2>

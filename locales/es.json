@@ -26,6 +26,7 @@
   "debug.clear": "Limpiar",
   "actions.export": "Exportar JSON",
   "actions.copy": "Copiar JSON",
+  "a11y.skip": "Saltar al contenido",
   "section.overview": "Resumen",
   "section.system": "Sistema",
   "section.cpu": "CPU",

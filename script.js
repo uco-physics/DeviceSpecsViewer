@@ -68,6 +68,13 @@ function applyTranslations() {
   document.documentElement.lang = state.lang;
 }
 
+function updateDynamicAria() {
+  document.querySelectorAll('[data-field]').forEach((el) => {
+    const key = el.dataset.field;
+    el.setAttribute('aria-label', `${key}: ${el.textContent}`);
+  });
+}
+
 function t(key, vars = null) {
   const template = state.translations[key] || key;
   if (!vars) return template;
@@ -744,6 +751,7 @@ function renderData(data) {
       el.textContent = value;
       el.classList.remove('value--loading');
       el.classList.add('value--ready');
+      updateDynamicAria();
     }, delay);
   });
   logEvent('info', 'Rendered data to UI', { fieldCount: elements.length });

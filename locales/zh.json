@@ -26,6 +26,7 @@
   "debug.clear": "清空",
   "actions.export": "导出 JSON",
   "actions.copy": "复制 JSON",
+  "a11y.skip": "跳到主要内容",
   "section.overview": "概览",
   "section.system": "系统",
   "section.cpu": "CPU",

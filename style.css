@@ -26,6 +26,23 @@ body {
   background: radial-gradient(circle at top, #ffffff 0%, #f5f7ff 50%, #eef1f7 100%);
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 12px;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 2000;
+}
+
+.skip-link:focus {
+  left: 12px;
+}
+
 h1, h2, h3 {
   font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   margin: 0;

@@ -26,6 +26,7 @@
   "debug.clear": "クリア",
   "actions.export": "JSONをエクスポート",
   "actions.copy": "JSONをコピー",
+  "a11y.skip": "本文へスキップ",
   "section.overview": "概要",
   "section.system": "システム",
   "section.cpu": "CPU",

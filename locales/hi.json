@@ -26,6 +26,7 @@
   "debug.clear": "साफ़ करें",
   "actions.export": "JSON निर्यात करें",
   "actions.copy": "JSON कॉपी करें",
+  "a11y.skip": "मुख्य सामग्री पर जाएं",
   "section.overview": "अवलोकन",
   "section.system": "सिस्टम",
   "section.cpu": "CPU",
